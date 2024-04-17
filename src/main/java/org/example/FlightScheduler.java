@@ -1,21 +1,36 @@
 package org.example;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
+
+/**
+ * Класс FlightScheduler представляет расписание рейсов и прогноз погоды для различных городов.
+ */
 @JsonPropertyOrder({ "flights", "forecast" })
 public class FlightScheduler {
+    /**
+     * Все рейсы
+     */
     private List<Flight> flights;
+    /**
+     * Прогноз погоды для различных городов.
+     */
     @JsonProperty("forecast")
     private Map<String, List<WeatherForecast>> forecast;
 
+    /**
+     * Пустой конструктор
+     */
     FlightScheduler() {}
 
+    /**
+     * Возвращает строковое представление расписания рейсов с информацией о статусе каждого рейса.
+     * @return Строковое представление расписания рейсов.
+     */
     public String toString(){
         StringBuilder res = new StringBuilder();
         for (Flight flight : flights) {
