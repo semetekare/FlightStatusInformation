@@ -1,28 +1,46 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * Класс представляющий собой модель рейса
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+//    "flights",
+        "no",
+        "departure",
+        "from",
+        "to",
+        "duration"
+})
 public class Flight {
     /**
      * номер рейса
      */
+    @JsonProperty("no")
     private String no;
     /**
      * время отправления по МЕСТНОМУ времени
      */
+    @JsonProperty("departure")
     private int departure;
     /**
      * город отправления
      */
+    @JsonProperty("from")
     private String from;
     /**
      * город назначения
      */
+    @JsonProperty("to")
     private String to;
     /**
      * время полета в часах
      */
+    @JsonProperty("duration")
     private int duration;
 
     /**

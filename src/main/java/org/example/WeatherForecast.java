@@ -1,20 +1,33 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * Прогноз погоды
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "time",
+        "wind",
+        "visibility"
+})
 public class WeatherForecast {
     /**
      * МЕСТНОЕ время
      */
+    @JsonProperty("time")
     private int time;
     /**
      * скорость ветра в м/с
      */
+    @JsonProperty("wind")
     private int wind;
     /**
      * видимость в метрах
      */
+    @JsonProperty("visibility")
     private int visibility;
 
     /**
